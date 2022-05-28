@@ -1,7 +1,8 @@
 const { default: mongoose } = require("mongoose");
 const BlogModel = require("../Models/blog.model");
+const AuthorModel = require("../Models/author.model");
 
-
+// For Posting a Blog
 async function BlogPost(req,res){
     try {
         let blogDetails = req.body;
@@ -69,13 +70,60 @@ async function AllBlogs(req,res){
 
 async function Blog(req,res){
 
-    let blogId = req.headers.blogid;
-    let blogDetails = await BlogModel.findOne({_id:blogId});
-    res.status(200).json({
+    try {
+        let blogId = req.headers.blogid;
+        let blogDetails = await BlogModel.findOne({_id:blogId});
+        res.status(200).json({
         status : "Success",
         blog : blogDetails
     })
+    } catch (error) {
+        res.json({
+            status : "Failed"
+        })
+    }
 
+}
+
+async function Search(req,res){
+    try {
+        let author = req.query.author;
+        let title = req.query.title;
+        let AuthorDetail = await AuthorModel.findOne({name: {$regex : author, $options : '$i'}});
+        let response = await BlogModel.find( { $and: [ { title: {$regex : title, $options : '$i'}}, { author : AuthorDetail._id } ] } );
+
+        if(response.length){
+        res.status(200).json({
+            status : "Success",
+            response : response
+        })
+    }else{
+        res.json({
+            message : "No Data Found"
+        })
+    }
+    } catch (error) {
+        res.json({
+            status : "Failed",
+            message : "Author or Title name is not Correct"
+        })
+    }
+}
+
+async function Publish(req,res){
+    try {
+            const blogId = req.headers.blogid;
+            await BlogModel.updateOne({_id: blogId}, {published : true});
+            res.status(200).json({
+                status: "Successfully Published"
+            })
+        
+    } catch (error) {
+        res.json({
+            status: "Error occured during Publishing",
+            message : error
+        })
+    }
 }
 
 
@@ -83,5 +131,7 @@ module.exports = {
     BlogPost,
     Like,
     AllBlogs,
-    Blog
+    Blog,
+    Search,
+    Publish
 }

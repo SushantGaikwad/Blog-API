@@ -16,6 +16,8 @@ app.post("/BlogPost",blogContoller.BlogPost)
 app.post("/like",blogContoller.Like);
 app.get("/allblogs",blogContoller.AllBlogs);
 app.get("/blog",blogContoller.Blog);
+app.get("/search", blogContoller.Search);
+app.post("/publish", blogContoller.Publish);
 
 
 module.exports = app;

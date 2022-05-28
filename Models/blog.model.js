@@ -10,7 +10,8 @@ const BlogSchema = Schema({
     likes : {type : Number, default : 0},
     label : [{type: String}],
     timestamp : {type: Date},
-    likedBy : [{type : mongoose.Types.ObjectId,ref : "authors"}]
+    likedBy : [{type : mongoose.Types.ObjectId,ref : "authors"}],
+    published : {type: Boolean, default : false}
 })
 
 const Blog = mongoose.model("blogs", BlogSchema);
