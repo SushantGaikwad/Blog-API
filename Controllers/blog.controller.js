@@ -14,12 +14,12 @@ async function BlogPost(req,res){
         let response = await BlogModel.insertMany([blogDetails]);
         console.log(response);
         res.status(200).json({
-            status : "Success",
+            status : "Blog Successfully Saved",
             blog : response
     })
     } catch (error) {
-        res.json({
-            status : "Failed",
+        res.status(401).json({
+            status : "Error Occured in Saving Blog",
             error : error
         });
     }
@@ -45,7 +45,7 @@ async function Like(req,res){
         })
         } catch (error) {
             console.log(error);
-            res.json({
+            res.status(401).json({
                 status : "Error Occured",
             })
         }
@@ -63,11 +63,19 @@ async function Like(req,res){
 
 // For Getting all Blogs
 async function AllBlogs(req,res){
-    let blogs = await BlogModel.find({}).sort({likes : -1});
-    res.status(200).json({
-        status : "Success",
+    try {
+        let blogs = await BlogModel.find({}).sort({likes : -1});
+        res.status(200).json({
+        status : "Success Fetched All Blogs",
         blogs : blogs
     })
+    } catch (error) {
+        res.status(401).json({
+            status : "Error Occured during Fetching All blogs",
+            error : error
+        })
+    }
+    
 }
 
 
@@ -81,7 +89,7 @@ async function Blog(req,res){
         blog : blogDetails
     })
     } catch (error) {
-        res.json({
+        res.status(401).json({
             status : "Failed"
         })
     }
@@ -98,11 +106,11 @@ async function Search(req,res){
 
         if(response.length){
         res.status(200).json({
-            status : "Success",
-            response : response
+            status : "Successfully Fetched",
+            blog : response
         })
     }else{
-        res.json({
+        res.status(401).json({
             message : "No Data Found"
         })
     }
@@ -124,9 +132,9 @@ async function Publish(req,res){
             })
         
     } catch (error) {
-        res.json({
-            status: "Error occured during Publishing",
-            message : error
+        res.status(401).json({
+                status: "Error occured during Publishing",
+                message : error
         })
     }
 }

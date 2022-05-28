@@ -8,12 +8,12 @@ async function Register(req,res){
     let response = await UserModel.insertMany([userDetails]);
     console.log(response);
     res.status(200).json({
-        status : "Success",
+        status : "Registration Successfull",
         user : response
     })
     } catch (error) {
-        res.json({
-            status : "Failed",
+        res.status(401).json({
+            status : "Registraton Failed",
             error : error
         })
     }
