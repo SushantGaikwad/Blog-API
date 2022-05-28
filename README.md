@@ -4,7 +4,7 @@ URL : https://sushant-blogging.herokuapp.com/
 
 # How to Use 
 
-## Registring Author
+## Registering Author
 
 ### Request
 
@@ -51,7 +51,7 @@ URL : https://sushant-blogging.herokuapp.com/
 
 ### Response
 
-    `Success (Status Code 200)`
+`Success (Status Code 200)`
     
       {
          status : "Blog Successfully Saved",
@@ -77,14 +77,14 @@ URL : https://sushant-blogging.herokuapp.com/
 
 ### Response
 
-   `Success (Status Code 200)`
+`Success (Status Code 200)`
    
       {
           status : "Success Fetched All Blogs",
           blogs : blogs      
       }
  
-   `Failure (Status Code 401)`
+`Failure (Status Code 401)`
    
       {
             status : "Error Occured during Fetching All blogs",
@@ -99,14 +99,14 @@ URL : https://sushant-blogging.herokuapp.com/
 
 ### Response
 
-     `Success (Status Code 200)`
+`Success (Status Code 200)`
      
       {
           status : "Successfully Fetched",
           blog : response    
       }
  
-   `Failure (Status Code 401)`
+`Failure (Status Code 401)`
    
       {
             status : "Failed",
@@ -121,13 +121,13 @@ URL : https://sushant-blogging.herokuapp.com/
 
 ### Response
 
-     `Success (Status Code 200)`
+`Success (Status Code 200)`
      
       {
           status: "Successfully Published"
       }
- 
-   `Failure (Status Code 401)`
+      
+`Failure (Status Code 401)`
    
       {
             status: "Error occured during Publishing",
@@ -149,14 +149,14 @@ URL : https://sushant-blogging.herokuapp.com/
 
 ### Response
 
-     `Success (Status Code 200)`
+`Success (Status Code 200)`
      
       {
           status : "Success",
           blog : blogDetails
       }
  
-   `Failure (Status Code 401)`
+`Failure (Status Code 401)`
    
       {
             status : "Failed"
@@ -179,13 +179,13 @@ URL : https://sushant-blogging.herokuapp.com/
 
 ### Response
 
-    `Success (Status Code 200)`
+`Success (Status Code 200)`
     
       {
           status : 'Liked Successfully' or 'Unliked Successfully'
       }
  
-   `Failure (Status Code 401)`
+`Failure (Status Code 401)`
    
       {
              status : "Error Occured",
