@@ -12,7 +12,7 @@ class mongo{
         mongoose.connect(process.env.MONGO_URL);
 
         mongoose.connection.once("open",()=>{
-            console.log("MongoDB Connected");
+            console.log("MongoDB Connected Successfully");
         });
 
         mongoose.connection.on("error",()=>{

@@ -7,8 +7,10 @@ const BlogSchema = Schema({
     title : {type: String, required : true},
     description : {type : String, required : true},
     authorId : {type: mongoose.Types.ObjectId, ref:"authors"},
+    likes : {type : Number, default : 0},
     label : [{type: String}],
-    timestamp : {type: Date}
+    timestamp : {type: Date},
+    likedBy : [{type : mongoose.Types.ObjectId,ref : "authors"}]
 })
 
 const Blog = mongoose.model("blogs", BlogSchema);
