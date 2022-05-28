@@ -8,6 +8,8 @@ app.use(express.json());
 app.get("/",(req,res)=>{
     res.send("This is Dashboard")
 })
+
+app.post("/register",blogContoller.Register)
 app.post("/BlogPost",blogContoller.BlogPost)
 
 

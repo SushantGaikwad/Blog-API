@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 class mongo{
 
@@ -8,7 +9,7 @@ class mongo{
 
     ConnectMongoDB(){
 
-        mongoose.connect(`mongodb+srv://SushantGaikwad1996:Hdo0P9kCcSxUaU7h@cluster0.ttuj2as.mongodb.net/Blogs?retryWrites=true&w=majority`);
+        mongoose.connect(process.env.MONGO_URL);
 
         mongoose.connection.once("open",()=>{
             console.log("MongoDB Connected");
