@@ -18,7 +18,8 @@ URL : https://sushant-blogging.herokuapp.com/
 
 ### Response
 
- Success (Status Code 200)
+ `Success (Status Code 200)`
+ 
       {
          status : "Registration Successfull",
          user : {
@@ -29,7 +30,8 @@ URL : https://sushant-blogging.herokuapp.com/
         
       }
  
-Failure (Status Code 401)
+`Failure (Status Code 401)`
+
       {
         status : "Registration Failed",
         error : error
@@ -49,7 +51,8 @@ Failure (Status Code 401)
 
 ### Response
 
-    Success (Status Code 200)
+    `Success (Status Code 200)`
+    
       {
          status : "Blog Successfully Saved",
          blog : {
@@ -59,7 +62,8 @@ Failure (Status Code 401)
                 }        
       }
  
-Failure (Status Code 401)
+`Failure (Status Code 401)`
+
       {
             status : "Error Occured in Saving Blog",
             error : error
@@ -73,13 +77,15 @@ Failure (Status Code 401)
 
 ### Response
 
-   Success (Status Code 200)
+   `Success (Status Code 200)`
+   
       {
           status : "Success Fetched All Blogs",
           blogs : blogs      
       }
  
-   Failure (Status Code 401)
+   `Failure (Status Code 401)`
+   
       {
             status : "Error Occured during Fetching All blogs",
             error : error
@@ -93,13 +99,15 @@ Failure (Status Code 401)
 
 ### Response
 
-     Success (Status Code 200)
+     `Success (Status Code 200)`
+     
       {
           status : "Successfully Fetched",
           blog : response    
       }
  
-   Failure (Status Code 401)
+   `Failure (Status Code 401)`
+   
       {
             status : "Failed",
             message : "Author or Title name is not Correct"
@@ -113,12 +121,14 @@ Failure (Status Code 401)
 
 ### Response
 
-     Success (Status Code 200)
+     `Success (Status Code 200)`
+     
       {
           status: "Successfully Published"
       }
  
-   Failure (Status Code 401)
+   `Failure (Status Code 401)`
+   
       {
             status: "Error occured during Publishing",
             message : error
@@ -139,13 +149,15 @@ Failure (Status Code 401)
 
 ### Response
 
-     Success (Status Code 200)
+     `Success (Status Code 200)`
+     
       {
           status : "Success",
           blog : blogDetails
       }
  
-   Failure (Status Code 401)
+   `Failure (Status Code 401)`
+   
       {
             status : "Failed"
       }
@@ -167,12 +179,14 @@ Failure (Status Code 401)
 
 ### Response
 
-    Success (Status Code 200)
+    `Success (Status Code 200)`
+    
       {
           status : 'Liked Successfully' or 'Unliked Successfully'
       }
  
-   Failure (Status Code 401)
+   `Failure (Status Code 401)`
+   
       {
              status : "Error Occured",
       }
