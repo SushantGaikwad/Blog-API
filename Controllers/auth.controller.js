@@ -1,6 +1,6 @@
 const UserModel = require("../Models/author.model");
 
-
+// For Registering User to System
 async function Register(req,res){
 
     try {        

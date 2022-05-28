@@ -2,7 +2,7 @@ const { default: mongoose } = require("mongoose");
 const BlogModel = require("../Models/blog.model");
 const AuthorModel = require("../Models/author.model");
 
-// For Posting a Blog
+// For Creating a Blog
 async function BlogPost(req,res){
     try {
         let blogDetails = req.body;
@@ -25,6 +25,7 @@ async function BlogPost(req,res){
     }
 }
 
+// For Like or Unlike any Blog
 async function Like(req,res){
     let authorId = req.headers.authorid;
     let blogId = req.headers.blogid;
@@ -60,6 +61,7 @@ async function Like(req,res){
     }
 }
 
+// For Getting all Blogs
 async function AllBlogs(req,res){
     let blogs = await BlogModel.find({}).sort({likes : -1});
     res.status(200).json({
@@ -68,8 +70,9 @@ async function AllBlogs(req,res){
     })
 }
 
-async function Blog(req,res){
 
+// For getting all the detail of Particular Blog
+async function Blog(req,res){
     try {
         let blogId = req.headers.blogid;
         let blogDetails = await BlogModel.findOne({_id:blogId});
@@ -85,6 +88,7 @@ async function Blog(req,res){
 
 }
 
+// For Searching any blog by Author Name and Blog Title
 async function Search(req,res){
     try {
         let author = req.query.author;
@@ -110,6 +114,7 @@ async function Search(req,res){
     }
 }
 
+// For Publishing Blog
 async function Publish(req,res){
     try {
             const blogId = req.headers.blogid;
@@ -126,6 +131,11 @@ async function Publish(req,res){
     }
 }
 
+// Dashboard
+function Dashboard(req,res){
+    res.send("This is Dashboard")
+}
+
 
 module.exports = {
     BlogPost,
@@ -133,5 +143,6 @@ module.exports = {
     AllBlogs,
     Blog,
     Search,
-    Publish
+    Publish,
+    Dashboard
 }

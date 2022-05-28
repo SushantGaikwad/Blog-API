@@ -11,7 +11,7 @@ const BlogSchema = Schema({
     label : [{type: String}],
     timestamp : {type: Date},
     likedBy : [{type : mongoose.Types.ObjectId,ref : "authors"}],
-    published : {type: Boolean, default : false}
+    published : {type: Boolean, default : false} // For Checking Blog is Published or Not
 })
 
 const Blog = mongoose.model("blogs", BlogSchema);
